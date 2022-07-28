@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - docker build -f wrhen/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t wrhen/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true wrhen/react-test npm test

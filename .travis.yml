@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true wrhen/react-test npm test
 
 after_success:
-  - docker build -t wrhen/multi-client ./client
-  - docker build -t wrhen/multi-nginx ./nginx
-  - docker build -t wrhen/multi-server ./server
-  - docker build -t wrhen/multi-worker ./worker
+  - docker build -t wrhenders/multi-client ./client
+  - docker build -t wrhenders/multi-nginx ./nginx
+  - docker build -t wrhenders/multi-server ./server
+  - docker build -t wrhenders/multi-worker ./worker
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take images and push to dockerhub
-  - docker push wrhen/multi-client
-  - docker push wrhen/multi-nginx
-  - docker push wrhen/multi-server
-  - docker push wrhen/multi-worker
+  - docker push wrhenders/multi-client
+  - docker push wrhenders/multi-nginx
+  - docker push wrhenders/multi-server
+  - docker push wrhenders/multi-worker
